@@ -1,0 +1,20 @@
+# Recovery fstab for Samsung Galaxy J2 Prime SM-G532G/DS (grandppltedx)
+# Verify every by-name path against stock recovery on the target firmware before use.
+
+/boot       emmc  /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/boot
+/recovery   emmc  /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/recovery  flags=display=recovery;backup=1
+/system     ext4  /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/system
+/cache      ext4  /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/cache
+/data       ext4  /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/userdata  flags=encryptable=footer  length=-16384
+/misc       emmc  /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/para  flags=backup=1;display=misc
+/efs        emmc  /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/EFS  flags=backup=1;display=EFS
+/nvram      emmc  /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/nvram  flags=backup=1;subpartitionof=/efs
+/nvdata     emmc  /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/nvdata  flags=backup=1;subpartitionof=/efs
+/md1img     emmc  /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/md1img  flags=backup=1;display=modem
+/md1dsp     emmc  /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/md1dsp  flags=backup=1;subpartitionof=/md1img
+/secro      emmc  /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/secro
+/proinfo    emmc  /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/proinfo
+/preload    ext4  /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/hidden
+/system_image emmc /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/system
+/external_sd auto /dev/block/mmcblk1p1 /dev/block/mmcblk1 flags=display="Micro SDcard";storage;wipeingui;removable
+/usb-otg     auto /dev/block/sda1 /dev/block/sda flags=display="USB OTG";storage;removable
